@@ -1218,18 +1218,450 @@
       color: rgba(255,255,255,0.8);
     }
 
+    /* ─── Apolo Stats Row ───────────────────────────────────── */
+    .apolo-stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      border-top: 1px solid rgba(200,168,130,0.2);
+      padding-top: 16px;
+    }
+    .apolo-stat {
+      flex: 1;
+      text-align: center;
+      padding: 8px 4px;
+      border-left: 1px solid rgba(200,168,130,0.15);
+    }
+    .apolo-stat:last-child { border-left: none; }
+    .astat-num {
+      display: block;
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      color: var(--gold);
+      font-weight: 400;
+    }
+    .astat-lbl {
+      display: block;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+    }
+
+    /* Wave tag */
+    .wave-tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: rgba(200,168,130,0.15);
+      color: var(--gold);
+      padding: 3px 8px;
+      margin-bottom: 8px;
+    }
+
+    /* ─── FAC Row ──────────────────────────────────────────── */
+    .fac-row {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: clamp(32px,5vw,80px);
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto clamp(48px,6vw,80px);
+      padding: clamp(32px,4vw,56px);
+      background: var(--nude);
+      border: 1px solid var(--border);
+    }
+    .fac-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem,3.5vw,2.5rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .fac-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--mid);
+    }
+    .fac-compare {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .fac-col { display: flex; flex-direction: column; gap: 6px; }
+    .fac-col-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      font-weight: 500;
+    }
+    .fac-bar-wrap {
+      height: 8px;
+      background: rgba(0,0,0,0.06);
+      border-radius: 0;
+      overflow: hidden;
+    }
+    .fac-bar {
+      height: 100%;
+      transition: width 1.5s var(--ease-out);
+    }
+    .fac-bar--bad { background: var(--light); }
+    .fac-bar--good { background: linear-gradient(90deg, var(--gold), var(--rose-gold)); }
+    .fac-pct {
+      font-size: 0.72rem;
+      color: var(--mid);
+      font-weight: 400;
+    }
+    .fac-col--good .fac-pct { color: var(--rose-gold); font-weight: 500; }
+
+    /* Specs table */
+    .fac-specs {
+      background: var(--charcoal);
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .spec-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      gap: 16px;
+    }
+    .spec-item:last-child { border-bottom: none; }
+    .spec-item--highlight { background: rgba(200,168,130,0.1); }
+    .spec-label {
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.05em;
+    }
+    .spec-val {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--gold);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    /* ─── Cooling Row ──────────────────────────────────────── */
+    .cooling-row {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: clamp(32px,5vw,80px);
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto clamp(48px,6vw,80px);
+    }
+    .cooling-visual {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 48px 32px;
+      background: var(--charcoal);
+    }
+    .cooling-circle {
+      position: relative;
+      z-index: 2;
+      width: 120px; height: 120px;
+      border: 1px solid rgba(200,168,130,0.35);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+    .cooling-circle i { font-size: 1.8rem; color: var(--gold); }
+    .cooling-circle span {
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--white);
+      letter-spacing: 0.15em;
+    }
+    .cooling-circle small {
+      font-size: 0.55rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+    .cooling-pulses {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+    .pulse-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(200,168,130,0.2);
+      transform: translate(-50%, -50%);
+      animation: pulseRing 3s ease-out infinite;
+    }
+    .pulse-ring--1 { width: 160px; height: 160px; animation-delay: 0s; }
+    .pulse-ring--2 { width: 210px; height: 210px; animation-delay: 0.8s; }
+    .pulse-ring--3 { width: 260px; height: 260px; animation-delay: 1.6s; }
+    @keyframes pulseRing {
+      0% { opacity: 0.5; transform: translate(-50%,-50%) scale(0.9); }
+      100% { opacity: 0; transform: translate(-50%,-50%) scale(1.1); }
+    }
+    .cooling-tags {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .c-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border: 1px solid rgba(200,168,130,0.3);
+      color: rgba(255,255,255,0.5);
+      padding: 5px 12px;
+    }
+    .cooling-title {
+      font-family: var(--serif);
+      font-size: clamp(1.7rem,3.5vw,2.6rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .cooling-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--mid);
+    }
+    .cooling-benefits {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .cb-item {
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--mid);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cb-item i { color: var(--gold); font-size: 0.65rem; flex-shrink: 0; }
+
+    /* ─── Smart Screen Row ──────────────────────────────────── */
+    .smartscreen-row {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: clamp(32px,5vw,80px);
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto clamp(48px,6vw,80px);
+      padding: clamp(32px,4vw,56px);
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+    }
+    .ss-title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem,3.5vw,2.5rem);
+      font-weight: 400;
+      color: var(--charcoal);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .ss-desc {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--mid);
+    }
+    .ss-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .ss-feat {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .ss-feat:last-child { border-bottom: none; }
+    .ss-feat-icon {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .ss-feat strong {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: 3px;
+    }
+    .ss-feat span {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.55;
+    }
+
+    /* ─── For Whom ──────────────────────────────────────────── */
+    .forwhom-row {
+      max-width: 1100px;
+      margin: 0 auto clamp(48px,6vw,80px);
+    }
+    .forwhom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .fw-card {
+      padding: clamp(24px,3vw,40px);
+      border: 1px solid var(--border);
+    }
+    .fw-card--yes { background: var(--card-bg); }
+    .fw-card--no  { background: var(--nude); }
+    .fw-card-header {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fw-card--yes .fw-card-header { color: var(--gold); }
+    .fw-card--no  .fw-card-header { color: var(--mid); }
+    .fw-list { display: flex; flex-direction: column; gap: 11px; }
+    .fw-list li {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: var(--mid);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+    .fw-list li i { color: var(--gold); font-size: 0.6rem; margin-top: 5px; flex-shrink: 0; }
+    .fw-card--no .fw-list li i { color: var(--light); }
+
+    /* ─── Journey Steps ─────────────────────────────────────── */
+    .journey-row {
+      max-width: 1100px;
+      margin: 0 auto clamp(48px,6vw,80px);
+    }
+    .journey-steps {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .jstep {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 28px;
+      align-items: stretch;
+      position: relative;
+    }
+    .jstep::before {
+      content: '';
+      position: absolute;
+      top: 52px; right: 39px;
+      width: 1px;
+      height: calc(100% - 16px);
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+    .jstep:last-child::before { display: none; }
+    .jstep-num {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      width: 52px; height: 52px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+      background: var(--white);
+      position: relative;
+      z-index: 1;
+    }
+    .jstep-body {
+      padding: 0 0 clamp(24px,3vw,40px) 0;
+    }
+    .jstep-body h4 {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin-bottom: 8px;
+    }
+    .jstep-body p {
+      font-size: 0.87rem;
+      font-weight: 300;
+      color: var(--mid);
+      line-height: 1.85;
+    }
+
+    /* ─── Bottom info grid ──────────────────────────────────── */
+    .bottom-info-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .apolo-expectations {
+      padding: clamp(28px,3vw,44px);
+      background: var(--nude);
+      border: 1px solid var(--border);
+    }
+
     /* Responsive for new sections */
     @media (max-width: 900px) {
       .apolo-main { grid-template-columns: 1fr; }
       .apolo-wavelengths { grid-template-columns: repeat(2,1fr); }
       .apolo-advantages { grid-template-columns: repeat(2,1fr); }
       .exp-grid { grid-template-columns: 1fr; }
+      .fac-row { grid-template-columns: 1fr; }
+      .cooling-row { grid-template-columns: 1fr; }
+      .cooling-visual { order: -1; padding: 40px; }
+      .smartscreen-row { grid-template-columns: 1fr; }
+      .forwhom-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
       .apolo-advantages { grid-template-columns: 1fr; }
       .apolo-wavelengths { grid-template-columns: 1fr 1fr; }
       .hygiene-banner { flex-direction: column; }
       .promo-badge { flex-direction: column; text-align: center; gap: 8px; }
+      .cooling-benefits { grid-template-columns: 1fr; }
+      .fac-compare { gap: 16px; }
+      .jstep { grid-template-columns: 56px 1fr; gap: 16px; }
     }
 
   </style>
@@ -1357,124 +1789,339 @@
   <!-- ═══ Apolo Laser Deep-Dive ══════════════════════════════ -->
   <section id="laser">
 
-    <!-- Header -->
+    <!-- ── INTRO ─────────────────────────────────────────── -->
     <div class="services-header reveal">
       <span class="section-label">Apolo Medical — הטכנולוגיה</span>
       <h2 class="section-title">המכשיר המהפכני<br>שבחרתי עבורך</h2>
       <div class="divider"></div>
       <p class="section-sub">
-        עור חלק, נעים למגע ונקי משיער — הוא לא רק עניין של אסתטיקה. הוא מעניק חופש, ביטחון עצמי ונוחות יומיומית.
-        בחרתי להביא את קדמת הטכנולוגיה העולמית ישר אלייך: מכשיר ה-Apolo Medical, עם פטנט רשום, מיוצר בארה"ב.
+        עור חלק הוא לא רק עניין של אסתטיקה — הוא מעניק חופש, ביטחון עצמי ונוחות יומיומית.
+        לאחר מחקר מעמיק, בחרתי להביא לקליניקה שלי את קדמת הטכנולוגיה העולמית: מכשיר ה-Apolo Medical.
+        מכשיר עם פטנט רשום, לייזר Coherent מיוצר בארה"ב, ואישור קליני בינלאומי.
       </p>
     </div>
 
-    <!-- Apolo main content block -->
+    <!-- ── HERO DARK BLOCK: 4 אורכי גל ───────────────────── -->
     <div class="apolo-main reveal">
       <div class="apolo-tech-badge">
-        <span class="apolo-badge-label">3D Technology</span>
+        <span class="apolo-badge-label">3D Laser Technology</span>
         <h3 class="apolo-badge-title">4 אורכי גל<br>מכשיר אחד</h3>
-        <p class="apolo-badge-sub">פטנט רשום · מיוצר בארה"ב · Coherent Laser</p>
+        <div style="width:40px;height:1px;background:var(--gold);margin:16px auto;"></div>
+        <p class="apolo-badge-sub" style="margin-bottom:20px;">פטנט רשום · Coherent USA · אישור קליני</p>
+        <div class="apolo-stats-row">
+          <div class="apolo-stat"><span class="astat-num">99%</span><span class="astat-lbl">ניצול אנרגיה</span></div>
+          <div class="apolo-stat"><span class="astat-num">200M</span><span class="astat-lbl">פולסים לידית</span></div>
+          <div class="apolo-stat"><span class="astat-num">IP65</span><span class="astat-lbl">עמידות מים</span></div>
+        </div>
       </div>
       <div class="apolo-wavelengths">
         <div class="wave-item">
-          <span class="wave-nm">755nm</span>
-          <span class="wave-name">Alex</span>
-          <span class="wave-desc">פותח במיוחד לשיער דק ובלונדיני</span>
+          <span class="wave-nm">755<small>nm</small></span>
+          <span class="wave-name">Alexandrite</span>
+          <span class="wave-tag">שיער בלונדיני ודק</span>
+          <span class="wave-desc">אורך הגל האפקטיבי ביותר לשיער דק, עדין ובהיר. חודר לפוליקול השערה תוך מינימום אנרגיה ומקסימום דיוק — מושלם לנשים בהירות עם שיער שקשה לטפל בו.</span>
         </div>
         <div class="wave-item">
-          <span class="wave-nm">808nm</span>
-          <span class="wave-name">Dioda</span>
-          <span class="wave-desc">מתאים לכל סוגי השיער והעור</span>
+          <span class="wave-nm">808<small>nm</small></span>
+          <span class="wave-name">Dioda Classic</span>
+          <span class="wave-tag">כל סוגי השיער והעור</span>
+          <span class="wave-desc">אורך הגל הזהב-סטנדרטי של תעשיית הלייזר. עומק חדירה אופטימלי לפוליקול השערה בכל עור, ממש בלונדיני ועד כהה. הבסיס לכל סדרת טיפולים מוצלחת.</span>
         </div>
         <div class="wave-item">
-          <span class="wave-nm">940nm</span>
-          <span class="wave-name">Dioda+</span>
-          <span class="wave-desc">טיפולי עור, כלי דם ופיגמנטציה</span>
+          <span class="wave-nm">940<small>nm</small></span>
+          <span class="wave-name">Dioda Advanced</span>
+          <span class="wave-tag">עור, כלי דם, פיגמנטציה</span>
+          <span class="wave-desc">אורך גל מיוחד שמאפשר טיפול בנימים, כלי דם קטנים ופיגמנטציה שטחית. מוסיף שכבת טיפול עורית שלא קיימת במכשירים בעלי 2-3 אורכי גל בלבד.</span>
         </div>
-        <div class="wave-item wave-item--last">
-          <span class="wave-nm">1064nm</span>
-          <span class="wave-name">YAG</span>
-          <span class="wave-desc">מדויק לעור כהה ולגברים</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- 5 יתרונות -->
-    <div class="apolo-advantages">
-
-      <div class="adv-card reveal reveal-delay-1">
-        <div class="adv-icon"><i class="fa-solid fa-layer-group"></i></div>
-        <h4 class="adv-title">טכנולוגיית 3D פורצת דרך</h4>
-        <p class="adv-desc">4 אורכי גל שונים במכשיר אחד — Alex, Dioda 808, Dioda 940 ו-YAG. מטפל במקביל בשיער פלומתי ובהיר ועד לשיער עבה וכהה, בכל גוון עור, כולל עור שזוף.</p>
-      </div>
-
-      <div class="adv-card reveal reveal-delay-2">
-        <div class="adv-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-        <h4 class="adv-title">אבחון חכם מוגדל פי 200</h4>
-        <p class="adv-desc">מצלמה כפולה מובנית הסורקת את העור ומגדילה פי 50 או פי 200 לאיתור מדויק של הפיגמנט. ההתאמה האישית מבטיחה עוצמת טיפול אופטימלית ובטיחות מקסימלית.</p>
-      </div>
-
-      <div class="adv-card reveal reveal-delay-3">
-        <div class="adv-icon"><i class="fa-solid fa-snowflake"></i></div>
-        <h4 class="adv-title">מקסימום תוצאה, אפס כאב</h4>
-        <p class="adv-desc">מערכת קירור TEC חכמה — שילוב של רוח, מים, חצי-מולית ותוכנה — מנטרת טמפרטורה אוטומטית כל 3 שניות. מונעת כאב, מונעת כוויות, מאפשרת טיפול אפילו באזורים הרגישים ביותר.</p>
-      </div>
-
-      <div class="adv-card reveal reveal-delay-4">
-        <div class="adv-icon"><i class="fa-solid fa-bullseye"></i></div>
-        <h4 class="adv-title">דיוק קליני — טכנולוגיית FAC</h4>
-        <p class="adv-desc">טכנולוגיה אופטית גרמנית-אמריקאית של LIMO ו-Coherent. אלומת קרניים ממוקדת שמעבירה 99% מהאנרגיה ישירות לשורש השערה. תוצאות מהירות יותר, פחות מפגשים בסדרה.</p>
-      </div>
-
-      <div class="adv-card reveal reveal-delay-1">
-        <div class="adv-icon"><i class="fa-solid fa-sun"></i></div>
-        <h4 class="adv-title">מתאים גם לקיץ הישראלי</h4>
-        <p class="adv-desc">אין צורך לעצור את התהליך! הטכנולוגיה המתקדמת מאפשרת להמשיך את סדרת הטיפולים בבטחה גם בעיצומו של הקיץ — עם עור שזוף. 100 מיליון פולסים בכל ידית — פי 5 ממכשירי לייזר אחרים.</p>
-      </div>
-
-      <div class="adv-card reveal reveal-delay-2">
-        <div class="adv-icon"><i class="fa-solid fa-shield-halved"></i></div>
-        <h4 class="adv-title">עמיד, בטוח ומאושר קלינית</h4>
-        <p class="adv-desc">המכשיר קיבל אישור במחקרים קליניים ועמיד בפני מים ואבק (IP65). ידית ללא קריסטלים — בטוחה מנפילות ומנזקים. מסך אנדרואיד מגע 15.6 אינץ' עם מערכת ניהול 200+ לקוחות ו-WiFi מובנה.</p>
-      </div>
-
-    </div>
-
-    <!-- תיאום ציפיות -->
-    <div class="apolo-expectations reveal">
-      <h3 class="exp-title">תיאום ציפיות — מה חשוב לדעת</h3>
-      <div class="exp-grid">
-        <div class="exp-item">
-          <i class="fa-solid fa-circle-info"></i>
-          <div>
-            <strong>שיער לבן לחלוטין</strong>
-            <p>הטכנולוגיה מבוססת על זיהוי פיגמנט השערה. לכן, הטיפול אינו אפקטיבי על שיער שאיבד לחלוטין את צבעו.</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <i class="fa-solid fa-circle-info"></i>
-          <div>
-            <strong>תגובת עור טבעית</strong>
-            <p>באזורים רגישים עשויה להופיע אדמומיות קלה וזמנית — סימן שהשורש קלט את האנרגיה. חולפת במהירות.</p>
-          </div>
-        </div>
-        <div class="exp-item">
-          <i class="fa-solid fa-circle-info"></i>
-          <div>
-            <strong>הגנה מהשמש</strong>
-            <p>יש להימנע מחשיפה ישירה לשמש חזקה ביומיים שלאחר הטיפול ולמרוח מקדם הגנה.</p>
-          </div>
+        <div class="wave-item">
+          <span class="wave-nm">1064<small>nm</small></span>
+          <span class="wave-name">Nd:YAG</span>
+          <span class="wave-tag">עור כהה, גברים, אזורים עמוקים</span>
+          <span class="wave-desc">עומק חדירה מקסימלי — מגיע לשורשי שיער עמוקים יותר, מושלם לעור כהה מאוד (סוגי עור V–VI) ולאזורים בהם השיער עבה וחזק במיוחד, כגון הפנים אצל גברים.</span>
         </div>
       </div>
     </div>
 
-    <!-- היגיינה -->
-    <div class="hygiene-banner reveal">
-      <div class="hygiene-icon"><i class="fa-solid fa-flask"></i></div>
-      <div class="hygiene-text">
-        <h4>הסטנדרט הסטרילי בקליניקה שלי</h4>
-        <p>בריאות העור שלך היא הקו האדום שלי. ראש מכשיר ה-Apolo עובר חיטוי יסודי בחומרים רפואיים מאושרים בין אזור לאזור ובין לקוחה ללקוחה. את מגיעה לטיפול הנקי, הבטוח והסטרילי ביותר שיש.</p>
+    <!-- ── FAC TECHNOLOGY ROW ─────────────────────────────── -->
+    <div class="fac-row reveal">
+      <div class="fac-text">
+        <span class="section-label">Focused Array Collimator</span>
+        <h3 class="fac-title">טכנולוגיית FAC —<br>הסוד שמאחורי התוצאות</h3>
+        <p class="fac-desc">
+          מרבית מכשירי הלייזר בשוק "בוזבזים" חלק גדול מהאנרגיה שהם מייצרים — האלומה מתפזרת, נחלשת, ולא מגיעה בעוצמה מספקת לשורש השערה.
+        </p>
+        <p class="fac-desc" style="margin-top:12px;">
+          ה-Apolo פותר את הבעיה הזו בצורה מוחלטת בזכות טכנולוגיית FAC (Focused Array Collimator) של חברת LIMO הגרמנית.
+          המערכת ממקדת את אלומת הקרניים במרחק עבודה של 32 מ"מ ומבטיחה שדיוק האנרגיה שמגיעה לשורש השערה עומד על <strong>99%</strong> — פי 4 בהשוואה למכשירים רגילים.
+        </p>
+        <p class="fac-desc" style="margin-top:12px;">
+          התוצאה המעשית עבורך: <strong>פחות מפגשים, תוצאות מהירות יותר, ועלות כוללת נמוכה יותר</strong> לאורך כל הסדרה.
+        </p>
+        <div class="fac-compare">
+          <div class="fac-col fac-col--bad">
+            <span class="fac-col-label">לייזר רגיל</span>
+            <div class="fac-bar-wrap"><div class="fac-bar fac-bar--bad" style="width:40%"></div></div>
+            <span class="fac-pct">~40% אנרגיה לשורש</span>
+          </div>
+          <div class="fac-col fac-col--good">
+            <span class="fac-col-label">Apolo FAC</span>
+            <div class="fac-bar-wrap"><div class="fac-bar fac-bar--good" style="width:99%"></div></div>
+            <span class="fac-pct">99% אנרגיה לשורש</span>
+          </div>
+        </div>
       </div>
+      <div class="fac-specs">
+        <div class="spec-item">
+          <span class="spec-label">עוצמת מכשיר</span>
+          <span class="spec-val">3,000W</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">אנרגיית שווי-ערך עם FAC</span>
+          <span class="spec-val">4,000W</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">גודל ספוט — ידית גדולה</span>
+          <span class="spec-val">15×30 מ"מ</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">גודל ספוט — ידית קטנה</span>
+          <span class="spec-val">12×15 מ"מ</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">רוחב פולס</span>
+          <span class="spec-val">1–500 ms</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">תדירות פעימות</span>
+          <span class="spec-val">1–20 Hz</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">פולסים לאורך חיי ידית</span>
+          <span class="spec-val">200 מיליון</span>
+        </div>
+        <div class="spec-item spec-item--highlight">
+          <span class="spec-label">מקור לייזר</span>
+          <span class="spec-val">Coherent USA 🇺🇸</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COOLING SYSTEM ROW ─────────────────────────────── -->
+    <div class="cooling-row reveal">
+      <div class="cooling-visual">
+        <div class="cooling-circle">
+          <i class="fa-solid fa-snowflake"></i>
+          <span>TEC</span>
+          <small>Cooling System</small>
+        </div>
+        <div class="cooling-pulses">
+          <div class="pulse-ring pulse-ring--1"></div>
+          <div class="pulse-ring pulse-ring--2"></div>
+          <div class="pulse-ring pulse-ring--3"></div>
+        </div>
+        <div class="cooling-tags">
+          <span class="c-tag">רוח</span>
+          <span class="c-tag">מים</span>
+          <span class="c-tag">חצי-מוליך</span>
+          <span class="c-tag">תוכנה חכמה</span>
+        </div>
+      </div>
+      <div class="cooling-text">
+        <span class="section-label">מערכת הקירור</span>
+        <h3 class="cooling-title">ללא כאב.<br>ללא כוויות.<br>בכל אזור בגוף.</h3>
+        <p class="cooling-desc">
+          אחד האתגרים הגדולים ביותר בהסרת שיער בלייזר הוא החום שנוצר במהלך הטיפול.
+          ה-Apolo Medical פתר את הבעיה הזו עם מערכת קירור TEC (Thermoelectric Cooling) מרובעת —
+          שילוב ייחודי של <strong>רוח, מים, חצי-מוליך ואלגוריתם תוכנה</strong>.
+        </p>
+        <p class="cooling-desc" style="margin-top:12px;">
+          המערכת בודקת ומתכווננת לטמפרטורת העור <strong>אוטומטית כל 3 שניות</strong>.
+          כך, גם הנגיעה בציר הטיפול נשארת קרירה ונעימה — ומאפשרת לטפל בנוחות גם באזורים הרגישים
+          והאינטימיים ביותר שאחרות לא מסתכנות לגעת בהם.
+        </p>
+        <div class="cooling-benefits">
+          <div class="cb-item"><i class="fa-solid fa-check"></i> מונעת כאב לחלוטין</div>
+          <div class="cb-item"><i class="fa-solid fa-check"></i> מונעת כוויות ואדמומיות מוגזמת</div>
+          <div class="cb-item"><i class="fa-solid fa-check"></i> מתאימה לאזורים רגישים ואינטימיים</div>
+          <div class="cb-item"><i class="fa-solid fa-check"></i> אין זמן החלמה — חוזרת לשגרה מיד</div>
+          <div class="cb-item"><i class="fa-solid fa-check"></i> מאפשרת טיפולים גם בקיץ הישראלי</div>
+          <div class="cb-item"><i class="fa-solid fa-check"></i> מתאימה לכל טיפוס עור, כולל עור רגיש</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SMART SCREEN ───────────────────────────────────── -->
+    <div class="smartscreen-row reveal">
+      <div class="ss-text">
+        <span class="section-label">מסך חכם · אבחון דיגיטלי</span>
+        <h3 class="ss-title">הטיפול שלך<br>מתחיל בראייה</h3>
+        <p class="ss-desc">
+          לפני כל טיפול, ה-Apolo Medical מבצע <strong>אבחון דיגיטלי מדויק</strong> של העור.
+          מצלמה כפולה מובנית במכשיר סורקת את אזור הטיפול ומגדילה את תמונת העור פי 50 או פי 200 —
+          כדי שאוכל לראות בדיוק את מבנה הפוליקול, גוון הפיגמנט ועובי השיער.
+        </p>
+        <p class="ss-desc" style="margin-top:12px;">
+          על בסיס הנתונים האלה, המערכת <strong>ממליצה אוטומטית על פרמטרי הטיפול המדויקים</strong> —
+          עוצמה, תדירות ורוחב פולס — בהתאם לצבע העור, אזור הטיפול ומין הלקוח.
+          האבחון הזה הוא ההבדל בין טיפול שעובד לטיפול שמשאיר צלקות.
+        </p>
+      </div>
+      <div class="ss-features">
+        <div class="ss-feat">
+          <div class="ss-feat-icon"><i class="fa-solid fa-camera"></i></div>
+          <div>
+            <strong>מצלמה כפולה מובנית</strong>
+            <span>הגדלה ×50 או ×200 לאיתור פיגמנט מדויק</span>
+          </div>
+        </div>
+        <div class="ss-feat">
+          <div class="ss-feat-icon"><i class="fa-solid fa-sliders"></i></div>
+          <div>
+            <strong>פרמטרים אוטומטיים</strong>
+            <span>המכשיר מחשב ומציע עוצמה, תדירות ורוחב פולס אופטימליים</span>
+          </div>
+        </div>
+        <div class="ss-feat">
+          <div class="ss-feat-icon"><i class="fa-solid fa-users"></i></div>
+          <div>
+            <strong>ניהול 200+ לקוחות</strong>
+            <span>שמירת היסטוריה מלאה — פרופיל, פרמטרים וספירת מפגשים לכל לקוחה</span>
+          </div>
+        </div>
+        <div class="ss-feat">
+          <div class="ss-feat-icon"><i class="fa-solid fa-wifi"></i></div>
+          <div>
+            <strong>WiFi מובנה · עדכונים שוטפים</strong>
+            <span>המכשיר מתעדכן אוטומטית לגרסה האחרונה — תמיד עם הטכנולוגיה החדישה ביותר</span>
+          </div>
+        </div>
+        <div class="ss-feat">
+          <div class="ss-feat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+          <div>
+            <strong>מסך Android מגע 15.6"</strong>
+            <span>ממשק נוח, ברור ומהיר — לחוויה חלקה גם למטפלת וגם ללקוחה</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FOR WHOM ───────────────────────────────────────── -->
+    <div class="forwhom-row reveal">
+      <div class="services-header" style="margin-bottom:clamp(28px,4vw,48px);">
+        <span class="section-label">למי מתאים הטיפול?</span>
+        <h3 class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.4rem);">כמעט לכולן —<br>ובכל עונה</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="forwhom-grid">
+        <div class="fw-card fw-card--yes">
+          <div class="fw-card-header"><i class="fa-solid fa-circle-check"></i> מתאים במיוחד ל...</div>
+          <ul class="fw-list">
+            <li><i class="fa-solid fa-chevron-left"></i> שיער בלונדיני ודק — Alex 755nm</li>
+            <li><i class="fa-solid fa-chevron-left"></i> כל גוון עור, כולל עור כהה — YAG 1064nm</li>
+            <li><i class="fa-solid fa-chevron-left"></i> נשים עם עור שזוף — ניתן גם בקיץ!</li>
+            <li><i class="fa-solid fa-chevron-left"></i> אזורים רגישים ואינטימיים</li>
+            <li><i class="fa-solid fa-chevron-left"></i> עור עם פיגמנטציה וכלי דם</li>
+            <li><i class="fa-solid fa-chevron-left"></i> מי שניסתה בעבר ולא ראתה תוצאות</li>
+            <li><i class="fa-solid fa-chevron-left"></i> שיער שחור, חום, ג'ינג'י עבה</li>
+            <li><i class="fa-solid fa-chevron-left"></i> גברים — שיער עבה בפנים וגוף</li>
+          </ul>
+        </div>
+        <div class="fw-card fw-card--no">
+          <div class="fw-card-header"><i class="fa-solid fa-circle-xmark"></i> מגבלות ידועות</div>
+          <ul class="fw-list">
+            <li><i class="fa-solid fa-chevron-left"></i> שיער לבן / אפור לחלוטין — ללא פיגמנט, הלייזר אינו אפקטיבי</li>
+            <li><i class="fa-solid fa-chevron-left"></i> הריון — יש להמתין לאחר הלידה</li>
+            <li><i class="fa-solid fa-chevron-left"></i> שימוש בתרופות מסוימות המגבירות רגישות לאור — יש לעדכן מראש</li>
+            <li><i class="fa-solid fa-chevron-left"></i> שיזוף מכוון יום-יומיים לפני הטיפול — יש להגיע עם עור מוגן</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TREATMENT JOURNEY ─────────────────────────────── -->
+    <div class="journey-row reveal">
+      <div class="services-header" style="margin-bottom:clamp(28px,4vw,48px);">
+        <span class="section-label">מה קורה בפגישה?</span>
+        <h3 class="section-title" style="font-size:clamp(1.6rem,3.5vw,2.4rem);">המסע שלך<br>מהתחלה עד הסוף</h3>
+        <div class="divider"></div>
+      </div>
+      <div class="journey-steps">
+        <div class="jstep">
+          <div class="jstep-num">01</div>
+          <div class="jstep-body">
+            <h4>פגישת ייעוץ ואבחון דיגיטלי — חינם</h4>
+            <p>אנחנו נפגשות, מדברות על הציפיות שלך ועל ההיסטוריה הרפואית הרלוונטית. המצלמה הדיגיטלית של ה-Apolo סורקת את אזור הטיפול ומגדילה ×200 — כדי לתכנן את הסדרה בדייקנות מרבית.</p>
+          </div>
+        </div>
+        <div class="jstep">
+          <div class="jstep-num">02</div>
+          <div class="jstep-body">
+            <h4>הכנה לטיפול</h4>
+            <p>גילוח האזור המיועד יום לפני הטיפול (לא שעווה / מלקחיים). ניקוי עור, הסרת קרם ושמן. חיטוי יסודי של ראש המכשיר בחומרים רפואיים מאושרים.</p>
+          </div>
+        </div>
+        <div class="jstep">
+          <div class="jstep-num">03</div>
+          <div class="jstep-body">
+            <h4>הטיפול עצמו</h4>
+            <p>אורך הטיפול: 10 דק' (גפיים תחתונות) עד 45 דק' (גוף מלא). מערכת הקירור TEC פועלת לאורך כל הטיפול. כמעט ללא תחושת חום — גם באזורים האינטימיים. ניתן לחזור לשגרה מיד.</p>
+          </div>
+        </div>
+        <div class="jstep">
+          <div class="jstep-num">04</div>
+          <div class="jstep-body">
+            <h4>הנחיות לאחר טיפול</h4>
+            <p>ללא חשיפה ישירה לשמש ביומיים הראשונים. מריחת קרם הרגעה (Aloe Vera / קרם לחות). ייתכן שיער שנושר לאחר 1–3 שבועות — זה בדיוק מה שאמור לקרות. מצוין.</p>
+          </div>
+        </div>
+        <div class="jstep">
+          <div class="jstep-num">05</div>
+          <div class="jstep-body">
+            <h4>תדירות ואורך הסדרה</h4>
+            <p>בממוצע 6–8 מפגשים, במרווחים של 4–8 שבועות (תלוי אזור). מפגשי תחזוקה אחת לשנה–שנתיים לאחר הסדרה. כבר מהמפגש השני-שלישי — תחושה של עור חלק אחר לגמרי.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── HYGIENE + EXPECTATIONS ────────────────────────── -->
+    <div class="bottom-info-grid reveal">
+
+      <div class="hygiene-banner">
+        <div class="hygiene-icon"><i class="fa-solid fa-flask"></i></div>
+        <div class="hygiene-text">
+          <h4>הסטנדרט הסטרילי בקליניקה שלי</h4>
+          <p>בריאות העור שלך היא הקו האדום שלי. ראש מכשיר ה-Apolo עובר חיטוי יסודי בחומרים רפואיים מאושרים — בין אזור לאזור, ובאופן מוחלט בין לקוחה ללקוחה. את יכולה להגיע רגועה לחלוטין.</p>
+        </div>
+      </div>
+
+      <div class="apolo-expectations">
+        <h3 class="exp-title"><i class="fa-solid fa-circle-info" style="color:var(--gold);font-size:1rem;margin-left:8px;"></i> תיאום ציפיות — מה חשוב לדעת</h3>
+        <div class="exp-grid">
+          <div class="exp-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <strong>שיער לבן לחלוטין</strong>
+              <p>הטכנולוגיה מבוססת על זיהוי פיגמנט. הטיפול אינו אפקטיבי על שיער שאיבד לחלוטין את צבעו.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <strong>אדמומיות זמנית</strong>
+              <p>באזורים רגישים עשויה להופיע אדמומיות קלה — סימן שהשורש קלט את האנרגיה. חולפת תוך שעות.</p>
+            </div>
+          </div>
+          <div class="exp-item">
+            <i class="fa-solid fa-circle-info"></i>
+            <div>
+              <strong>הגנה מהשמש</strong>
+              <p>יש להימנע מחשיפה ישירה ביומיים שלאחר הטיפול ולמרוח מקדם הגנה SPF 50+.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </section>

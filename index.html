@@ -316,25 +316,24 @@ section{padding:6.5rem 3rem}
 /* ═══════════════════════════════════
    LASER
 ═══════════════════════════════════ */
-.laser-section{background:var(--charcoal);color:var(--cream)}
+.laser-section{background:#0e0b08;color:var(--cream)}
 .laser-section .section-label{color:var(--gold3)}
 .laser-section .section-title{color:var(--cream)}
 .laser-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:1100px;margin:3.5rem auto 0}
 .laser-left{padding-right:3rem;display:flex;flex-direction:column;justify-content:center}
-.laser-desc{font-size:.9rem;line-height:1.9;color:rgba(250,247,242,.55);margin-bottom:2rem;font-weight:300}
-.laser-specs{display:flex;flex-direction:column;border:.5px solid rgba(184,150,90,.2)}
-.spec-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.3rem;border-bottom:.5px solid rgba(184,150,90,.12);font-size:.8rem}
+.laser-desc{font-size:.95rem;line-height:1.9;color:rgba(250,247,242,.65);margin-bottom:2rem;font-weight:300}
+.laser-specs{display:flex;flex-direction:column;border:1px solid rgba(184,150,90,.3)}
+.spec-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.3rem;border-bottom:.5px solid rgba(184,150,90,.15);font-size:.82rem}
 .spec-row:last-child{border-bottom:none}
-.spec-key{color:rgba(250,247,242,.4);letter-spacing:.06em;font-weight:300}
-.spec-val{font-family:var(--serif);font-size:.95rem;color:var(--gold3);font-weight:400}
-.laser-right{padding-left:3rem;display:flex;flex-direction:column;gap:1px;background:rgba(255,255,255,.06)}
-.wave-card{background:var(--charcoal);padding:1.8rem 2rem;position:relative;overflow:hidden;transition:background .2s;border-bottom:.5px solid rgba(255,255,255,.05)}
-.wave-card:last-child{border-bottom:none}
-.wave-card:hover{background:#2a2420}
-.wave-nm{font-family:var(--serif);font-size:1.8rem;font-weight:300;color:rgba(184,150,90,.25);position:absolute;top:1rem;left:1.5rem;line-height:1}
-.wave-title{font-family:var(--serif);font-size:1.2rem;font-weight:300;color:var(--cream);margin-bottom:.3rem;position:relative;z-index:1}
-.wave-for{font-size:.84rem;color:rgba(250,247,242,.35);letter-spacing:.06em;position:relative;z-index:1}
-.wave-bar{margin-top:1rem;height:2px;background:rgba(184,150,90,.15);border-radius:1px;position:relative}
+.spec-key{color:rgba(250,247,242,.5);letter-spacing:.06em;font-weight:300}
+.spec-val{font-family:var(--serif);font-size:1rem;color:var(--gold2);font-weight:400}
+.laser-right{padding-left:3rem;display:flex;flex-direction:column;gap:2px}
+.wave-card{background:#161210;padding:1.8rem 2rem;position:relative;overflow:hidden;transition:background .25s;border:.5px solid rgba(184,150,90,.2)}
+.wave-card:hover{background:#1e1810;border-color:rgba(184,150,90,.5)}
+.wave-nm{font-family:var(--serif);font-size:2rem;font-weight:300;color:rgba(184,150,90,.4);position:absolute;top:1rem;left:1.5rem;line-height:1}
+.wave-title{font-family:var(--serif);font-size:1.15rem;font-weight:400;color:rgba(250,247,242,.92);margin-bottom:.35rem;position:relative;z-index:1}
+.wave-for{font-size:.82rem;color:rgba(250,247,242,.48);line-height:1.6;letter-spacing:.03em;position:relative;z-index:1}
+.wave-bar{margin-top:.9rem;height:2px;background:rgba(184,150,90,.15);border-radius:1px}
 .wave-bar-fill{height:100%;border-radius:1px;background:linear-gradient(90deg,var(--gold),var(--gold3))}
 
 /* ═══════════════════════════════════
@@ -371,20 +370,20 @@ section{padding:6.5rem 3rem}
 /* ═══════════════════════════════════
    SUITS
 ═══════════════════════════════════ */
-.suits-section{background:var(--charcoal)}
+.suits-section{background:#0e0b08}
 .suits-section .section-label{color:var(--gold3)}
 .suits-section .section-title{color:var(--cream)}
-.suits-intro{font-size:.9rem;line-height:1.8;color:rgba(250,247,242,.45);max-width:500px;font-weight:300}
-.suits-grid{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:3.5rem auto 0;border:.5px solid rgba(184,150,90,.2)}
+.suits-intro{font-size:.95rem;line-height:1.85;color:rgba(250,247,242,.55);max-width:500px;font-weight:300}
+.suits-grid{display:grid;grid-template-columns:1fr 1fr;max-width:1100px;margin:3.5rem auto 0;border:1px solid rgba(184,150,90,.3)}
 .suits-col{padding:3rem 3.5rem}
-.suits-col:first-child{border-left:.5px solid rgba(184,150,90,.2)}
-.suits-col-head{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--cream);margin-bottom:1.8rem;display:flex;align-items:center;gap:.8rem}
+.suits-col:first-child{border-left:1px solid rgba(184,150,90,.3)}
+.suits-col-head{font-family:var(--serif);font-size:1.35rem;font-weight:400;color:rgba(250,247,242,.92);margin-bottom:1.8rem;display:flex;align-items:center;gap:.8rem}
 .dot-gold{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0}
 .dot-muted{background:rgba(250,247,242,.25)}
 .suits-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
-.suits-list li{font-size:.95rem;color:rgba(250,247,242,.55);line-height:1.65;display:flex;align-items:flex-start;gap:.8rem;font-weight:300}
+.suits-list li{font-size:.95rem;color:rgba(250,247,242,.58);line-height:1.65;display:flex;align-items:flex-start;gap:.8rem;font-weight:300}
 .suits-list li::before{content:'—';color:rgba(184,150,90,.5);flex-shrink:0}
-.suits-list.good li{color:rgba(250,247,242,.7)}
+.suits-list.good li{color:rgba(250,247,242,.82)}
 .suits-list.good li::before{color:var(--gold)}
 
 /* ═══════════════════════════════════
@@ -419,17 +418,26 @@ section{padding:6.5rem 3rem}
 /* ═══════════════════════════════════
    GALLERY
 ═══════════════════════════════════ */
-.gallery-strip{background:var(--charcoal);padding:5rem 3rem}
+.gallery-strip{background:#0e0b08;padding:5rem 3rem}
 .gallery-heading{text-align:center;margin-bottom:3.5rem}
 .gallery-heading .section-label{justify-content:center}
 .gallery-heading .section-label::before{display:none}
 .gallery-heading .section-title{color:var(--cream)}
-.gallery-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:1px;max-width:1100px;margin:0 auto;background:rgba(255,255,255,.06)}
-.gallery-cell{background:var(--charcoal);min-height:220px;display:flex;align-items:flex-end;padding:1.5rem;position:relative;overflow:hidden}
-.gallery-cell-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.08}
-.gallery-cell-label{font-family:var(--serif);font-size:1rem;font-weight:300;color:var(--cream);position:relative;z-index:1}
-.gallery-cell-sub{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(212,184,122,.5);display:block;margin-top:.2rem}
-.gallery-cell:nth-child(odd){background:#1a1610}
+.gallery-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr 1.2fr;gap:2px;max-width:1100px;margin:0 auto;background:rgba(184,150,90,.2)}
+.gallery-cell{background:#121008;min-height:240px;display:flex;align-items:flex-end;padding:1.8rem;position:relative;overflow:hidden;transition:background .3s}
+.gallery-cell:hover{background:#1a1610}
+.gallery-cell-bg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:.22;transition:opacity .3s}
+.gallery-cell:hover .gallery-cell-bg{opacity:.35}
+.gallery-cell-label{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:rgba(250,247,242,.92);position:relative;z-index:1}
+.gallery-cell-sub{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold3);display:block;margin-top:.3rem;opacity:.8}
+.gallery-cell:nth-child(odd){background:#161310}
+/* gold top-line on hover */
+.gallery-cell::after{
+  content:'';position:absolute;top:0;left:0;right:0;
+  height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.gallery-cell:hover::after{opacity:1}
 
 /* ═══════════════════════════════════
    CTA
@@ -553,29 +561,37 @@ footer p{font-size:.65rem;color:rgba(250,247,242,.15);letter-spacing:.06em}
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-pattern"></div>
+    <div class="hero-right-glow"></div>
+    <div class="hero-right-grid"></div>
     <div class="hero-right-inner">
-      <div class="hero-oval">
-        <div class="hero-oval-text">NAILINDA</div>
-        <svg width="200" height="260" viewBox="0 0 200 260" fill="none" style="position:relative;z-index:1">
-          <line x1="100" y1="20" x2="100" y2="240" stroke="rgba(184,150,90,.15)" stroke-width=".5"/>
-          <line x1="20" y1="130" x2="180" y2="130" stroke="rgba(184,150,90,.15)" stroke-width=".5"/>
-          <circle cx="100" cy="130" r="60" stroke="rgba(184,150,90,.12)" stroke-width=".5"/>
-          <circle cx="100" cy="130" r="40" stroke="rgba(184,150,90,.1)" stroke-width=".5"/>
-          <circle cx="100" cy="130" r="20" stroke="rgba(184,150,90,.2)" stroke-width=".8"/>
-          <circle cx="100" cy="130" r="4" fill="rgba(184,150,90,.4)"/>
-          <line x1="20" y1="20" x2="36" y2="20" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="20" y1="20" x2="20" y2="36" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="180" y1="20" x2="164" y2="20" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="180" y1="20" x2="180" y2="36" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="20" y1="240" x2="36" y2="240" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="20" y1="240" x2="20" y2="224" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="180" y1="240" x2="164" y2="240" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-          <line x1="180" y1="240" x2="180" y2="224" stroke="rgba(184,150,90,.3)" stroke-width=".8"/>
-        </svg>
+      <div class="hero-medallion">
+        <!-- outer ring with inner core -->
+        <div class="medallion-ring-outer">
+          <div class="medallion-ring-inner">
+            <!-- corner tick marks -->
+            <div class="med-corner tl"><svg viewBox="0 0 20 20" fill="none"><line x1="0" y1="10" x2="8" y2="10" stroke="#b8965a" stroke-width="1"/><line x1="10" y1="0" x2="10" y2="8" stroke="#b8965a" stroke-width="1"/></svg></div>
+            <div class="med-corner tr"><svg viewBox="0 0 20 20" fill="none"><line x1="20" y1="10" x2="12" y2="10" stroke="#b8965a" stroke-width="1"/><line x1="10" y1="0" x2="10" y2="8" stroke="#b8965a" stroke-width="1"/></svg></div>
+            <div class="med-corner bl"><svg viewBox="0 0 20 20" fill="none"><line x1="0" y1="10" x2="8" y2="10" stroke="#b8965a" stroke-width="1"/><line x1="10" y1="20" x2="10" y2="12" stroke="#b8965a" stroke-width="1"/></svg></div>
+            <div class="med-corner br"><svg viewBox="0 0 20 20" fill="none"><line x1="20" y1="10" x2="12" y2="10" stroke="#b8965a" stroke-width="1"/><line x1="10" y1="20" x2="10" y2="12" stroke="#b8965a" stroke-width="1"/></svg></div>
+            <div class="medallion-core">
+              <span class="med-top-text">LINDA</span>
+              <div class="med-divider"></div>
+              <span class="med-L">L</span>
+              <div class="med-divider"></div>
+              <span class="med-bottom-text">BEAUTY</span>
+            </div>
+          </div>
+        </div>
+        <!-- site name below -->
+        <div class="medallion-sitename">
+          <div class="med-site-row">
+            <span class="med-site-main">NAILINDA</span>
+          </div>
+          <span class="med-site-sub">Studio · Laser & Beauty · יבנה</span>
+        </div>
       </div>
     </div>
-    <div class="hero-badge">Apolo Medical · 4 אורכי גל · הטכנולוגיה המתקדמת בישראל</div>
+    <div class="hero-badge">✦ &nbsp; Apolo Medical · 4 אורכי גל · הטכנולוגיה המתקדמת בישראל &nbsp; ✦</div>
   </div>
 </section>
 
